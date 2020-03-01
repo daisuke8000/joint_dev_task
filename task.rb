@@ -84,7 +84,7 @@ def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-  puts foods.each{ |i| i.include?("うに") ? '好物です':'まぁまぁ好きです' }
+  foods.each{ |i| puts i.include?("うに") ? '好物です':'まぁまぁ好きです' }
 
 end
 
