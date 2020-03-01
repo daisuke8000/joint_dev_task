@@ -102,7 +102,7 @@ p upper_case_programming_languages
 names = ["田中", "佐藤", "佐々木", "高橋"]
 ```
 
-期待結果
+# 期待結果
 
 ```
 会員No.1 田中さん
