@@ -149,7 +149,23 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  def initialize(**param)
+    @name = param[:name]
+    @age = param[:age]
+    @gender = param[:gender]
+    @admin = param[:admin]
+  end
 
+  def info
+    admin = @admin ? "有り" : "無し"
+    puts <<~EOS
+      名前：#{@name}
+      年齢：#{@age}
+      性別：#{@gender}
+      管理者権限：#{admin}
+    EOS
+
+  end
 end
 
 def q17
@@ -164,7 +180,14 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(**gest)
+    @name = gest[:name]
+    @age = gest[:age]
+  end
 
+  def introduce
+    @age >= 20 ? "こんにちは，#{@name}と申します。宜しくお願いいたします。" : "はいさいまいど〜，#{@name}です！！！"
+  end
 end
 
 def q18
@@ -178,9 +201,9 @@ end
 
 class Item
   # 以下を修正して下さい
-
+  attr_accessor :name
   def initialize(name)
-    @name = name
+    @name = name[:name]
   end
 end
 
@@ -192,11 +215,41 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  attr_accessor :name,:age
+  def initialize(**param)
+    @name = param[:name]
+    @age = param[:age]
+  end
 
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(**info)
+    @name = info[:name]
+    @entry_fee = info[:entry_fee]
+  end
+
+  def info_entry_fee(user)
+    plice =
+    case user.age
+    when nil..5 then
+      @entry_fee[:infant]
+    when 5..12 then
+      @entry_fee[:children]
+    when 12..60 then
+      @entry_fee[:adult]
+    when 60..nil then
+      @entry_fee[:senior]
+    else
+      'Out of selection error'
+    end
+    puts "#{user.name}さんの入場料金は #{plice.to_s} 円です。"
+    #たまさんの入場料金は 0 円です。
+    #ゆたぼんさんの入場料金は 400 円です。
+    #あじーさんの入場料金は 800 円です。
+    #ぎんさんの入場料金は 500 円です。
+  end
 
 end
 
